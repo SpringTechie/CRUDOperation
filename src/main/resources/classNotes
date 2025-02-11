@@ -1,0 +1,12 @@
+1.Create Springboot project using spring intializer (https://start.spring.io/)
+2.Add the required dependencies
+3.Mysql dependency, web dependencies, spring data jpa.
+4.create a entity class in entity pakage.
+5. mark entity class as @Entity and add @Id on primary key field.
+6.create controller class and mark as @RestController.
+7. In controller class create api.
+8. create service class
+9. create repository class
+10.now configure some properties related to database in application properties.
+
+
