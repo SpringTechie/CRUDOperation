@@ -6,8 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
+@Data
 @Table(name = "Product_Details")
 public class Product {
 
@@ -19,45 +21,5 @@ public class Product {
     private double pRating;
     private int noOfOrders;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getpName() {
-        return pName;
-    }
-
-    public void setpName(String pName) {
-        this.pName = pName;
-    }
-
-    public double getpRating() {
-        return pRating;
-    }
-
-    public void setpRating(double pRating) {
-        this.pRating = pRating;
-    }
-
-    public int getNoOfOrders() {
-        return noOfOrders;
-    }
-
-    public void setNoOfOrders(int noOfOrders) {
-        this.noOfOrders = noOfOrders;
-    }
-
-    public Product(int id, String pName, double pRating, int noOfOrders) {
-        this.id = id;
-        this.pName = pName;
-        this.pRating = pRating;
-        this.noOfOrders = noOfOrders;
-    }
-
-    public Product() {
-    }
 }
