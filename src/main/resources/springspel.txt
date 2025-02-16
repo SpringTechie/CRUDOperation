@@ -1,0 +1,8 @@
+Spring SPEL.
+SPEL stands for Spring Expression Language.
+is powerful expression lang used to query and manipulate objects at runtime.
+It injects the values dynamically.
+By this annotation and expression we can load  property from  application.properties file
+Example: @Value("${name}") // this loads the name values from application properties.
+
+By using SPEL we can also perform mathematical operations and method calls.
