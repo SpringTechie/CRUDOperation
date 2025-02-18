@@ -1,6 +1,7 @@
 package com.springtechie.controller;
 
 import com.springtechie.entity.Product;
+import com.springtechie.impl.ProductServiceImpl;
 import com.springtechie.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,7 +29,7 @@ public class ProductController {
     }
 
     // to create Product
-    @PostMapping("/save")
+    @PostMapping(value = "/save",consumes = "application/json",produces = "application/json")
     public String saveProduct( @RequestBody Product product) {
         return productService.saveProduct(product);
     }
