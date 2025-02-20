@@ -2,7 +2,7 @@ Actuator: It provides the production ready features for monitoring and managing 
 It expose some endpoints that help you gain insights into your application.
 
 Impl:
-Just add actuator dependancy in pom file.
+Just add actuator dependency starter in pom file.
 Now run the application & and you can see in logs saying " Exposing 1 endpoints beneath base path '/actuator'"
 which means by default only endpoint is enabled which is "/health"
 
@@ -12,7 +12,7 @@ The above tells whether application is up or Down.
 In Actuator we have total 14 endpoints
 to enable all endpoints use add this property in properties file
 
-management.endpoints.web.exposure.include= *
+management.endpoints.web.exposure.include = *
 
 - To enable only specific endpoints add this
 management.endpoints.web.exposure.include= info,health,mappings
@@ -35,10 +35,10 @@ management.endpoints.web.exposure.exclude= info
 14.http://localhost:9898/actuator/shutdown: it used to stop the running application.
 
 
-// All other endpoints are accessed by Using GET access but shutdown endpoint is accessed by using POST request.
-// for security reasons it is disabled .
-// to enable this endpoint use this
- management.endpoint.shutdown.enabled = true
+All other endpoints are accessed by Using GET access but shutdown endpoint is accessed by using POST request.
+for security reasons it is disabled .
+to enable this endpoint use this.
+management.endpoint.shutdown.enabled = true
 
 
 
