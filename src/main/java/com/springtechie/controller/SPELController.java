@@ -18,7 +18,7 @@ public class SPELController {
     private List<String> values;
 
     // arthritic operation
-    @Value("#{2+3}")
+    @Value("#{2+5}")
     private int add;
 
     // ternary operator expression
