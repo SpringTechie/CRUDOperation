@@ -10,3 +10,63 @@
 10.now configure some properties related to database in application properties.
 
 
+IOC Container:
+The IoC container in Spring is responsible for managing the lifecycle and dependencies of beans (Java objects). It follows the Inversion of Control principle, where the control of object creation and dependency management is shifted from the application to the container
+Types of IOC Container:
+Total two types of Ioc container
+1.BeanFactory: It is basic IOC Container.
+It is an container where object creation and managing and destruction is done here.
+It is basic container used in small application.
+It is lazy loading: It means it creates objects when it is requested.
+2.Application Context: It is advance IOC Container, it supports Internationalization(i18).
+It is an container where object creation and managing and destruction(life cycle) is done here.
+It is advance container used in large application.
+it is eager loading: It means it creates objects at the time of application starts.
+
+Scope:In Spring Boot, bean scope determines how a bean is created, shared, and managed within the application context.
+By default all beans in spring boot are singleton.
+It means wherever you request a particular object it returns the same object from container
+
+If we want to change scope of any bean we need to annotate the @Scope("Mention scope name")
+Example: @Scope("prototype")
+Prototype: Means on every request a new object is created and shared.
+
+@Scope("request") : Creates a new bean of the bean for each HTTP request.
+
+@Scope("session") : Creates a new bean per user session.
+
+
+How to get beans from container?
+to get beans from ioc we have diff methods.
+ConfigurableApplicationContext run = SpringApplication.run(CrudOperationApplication.class, args);
+ProductServiceImpl bean = run.getBean(ProductServiceImpl.class);
+How beans names are crated in IOC Container?
+ClassName => beanName
+Example:
+ProductController => productController
+ProductServiceImpl => productServiceImpl
+By passing bean  name.
+ProductServiceImpl productServiceImpl = (ProductServiceImpl)run.getBean("productServiceImpl");
+
+How to override the bean name in spring boot?
+By default beans names are className with camelCase , if we want to override the name we have name  the bean name explicitly
+in @Service("custombeanName") , This is applicable to component ,RestController ,Repository annotation.
+
+I want to do some action or execute some piece of code after application starts?
+This is can be achived by using @PostConstruct annotation.
+initialization
+The below method executed after the application context is fully initialized.
+	@PostConstruct
+	public void welcomeMessage() {
+		System.out.println("Welcome to springtechie");
+	}
+
+The below method executed just before the beans are removed from application context.
+	//clean up
+	@PreDestroy
+	public void destroy() {
+		System.out.println("Bye!!");
+	}
+
+
+

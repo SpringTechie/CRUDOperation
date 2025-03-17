@@ -5,18 +5,20 @@ import com.springtechie.exceptions.ProductNotFoundException;
 import com.springtechie.repository.ProductRepository;
 import com.springtechie.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.Optional;
 
-@Service
+@Service("pservice")
+@Scope("prototype")
 public class ProductServiceImpl implements ProductService {
 
-
     private final ProductRepository productRepository;
+
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
-        System.out.println("service");
         this.productRepository = productRepository;
     }
 

@@ -16,8 +16,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "productName")
-    private String pName;
+    private String productName;
     private double pRating;
     private int noOfOrders;
 
