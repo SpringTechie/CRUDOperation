@@ -32,7 +32,7 @@ public class CrudOperationApplication {
 
 	}
 
-	// initialzation
+	// initialization
 	@PostConstruct
 	public void welcomeMessage() {
 		System.out.println("Welcome to springtechie");
