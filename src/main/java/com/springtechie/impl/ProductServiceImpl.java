@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.RequestScope;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service("pservice")
@@ -57,5 +58,11 @@ public class ProductServiceImpl implements ProductService {
     public String updateProduct(Product product) {
         productRepository.save(product);
         return "Product updated Successfully";
+    }
+
+    @Override
+    public List<Product> fetchAllProducts(int size) {
+        List<Product> products = productRepository.findAll();
+       return products.subList(0,size);
     }
 }

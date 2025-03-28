@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/v1/api")
 @Tag(name="Product-Controller",description = "This controller has product related API's")
@@ -51,4 +53,12 @@ public class ProductController {
         return productService.updateProduct(product);
     }
 
+
+    @GetMapping("all/products")
+    public List<Product> getAllProducts(@RequestParam int size) {
+        if(size>=0) {
+            return productService.fetchAllProducts(size);
+        }
+        throw new RuntimeException("Size should not be negative");
+    }
 }
