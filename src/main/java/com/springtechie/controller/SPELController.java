@@ -11,7 +11,7 @@ public class SPELController {
 
     // to read string or int from properties
     @Value("${name}")
-    private String name;
+    private String firstName;
 
     // how to read list of values
     @Value("${available.product}")
@@ -33,6 +33,9 @@ public class SPELController {
     // to invoke other class methods.
     @Value("#{helper.getCountry()}")
     private String country;
+
+    @Value("${name}")
+    private String name;
 
     @GetMapping("/test")
     public void testMethod() {

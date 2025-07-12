@@ -30,9 +30,10 @@ public class ProductController {
     @ApiResponse(responseCode = "200",description = "ProductFound")
     @ApiResponse(responseCode = "204",description = "No Product Found with Id")
     @ApiResponse(responseCode = "400",description = "Bad Request")
-    public Product getProduct(@PathVariable int id) {
+    public Product fetchProduct(@PathVariable int id) {
        return productService.getProduct(id);
     }
+
 
     // to create Product
     @PostMapping(value = "/save",consumes = "application/json",produces = "application/json")

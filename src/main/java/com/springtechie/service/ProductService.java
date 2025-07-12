@@ -4,7 +4,7 @@ import com.springtechie.entity.Product;
 
 import java.util.List;
 
-public interface ProductService{
+public interface ProductService {
 
      Product getProduct(int id);
      String saveProduct(Product product);
