@@ -1,6 +1,7 @@
 package com.springtechie.controller;
 
 import com.springtechie.entity.Product;
+import com.springtechie.exceptions.ProductNotFoundException;
 import com.springtechie.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -31,7 +32,11 @@ public class ProductController {
     @ApiResponse(responseCode = "204",description = "No Product Found with Given Id")
     @ApiResponse(responseCode = "400",description = "Bad Request")
     public Product fetchProduct(@PathVariable int id) {
-       return productService.getProduct(id);
+        if(id>0) {
+            return productService.getProduct(id);
+        }
+        throw new ProductNotFoundException("Id must not be less than zero");
+
     }
 
 
