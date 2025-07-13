@@ -28,7 +28,7 @@ public class ProductController {
     @Operation(summary = "Find product By Id",description = "This helps to find the product by Product Id")
     @Parameter(name="id",description = "Enter Product Id",example = "1")
     @ApiResponse(responseCode = "200",description = "ProductFound with given Id")
-    @ApiResponse(responseCode = "204",description = "No Product Found with Id")
+    @ApiResponse(responseCode = "204",description = "No Product Found with given Id")
     @ApiResponse(responseCode = "400",description = "Bad Request")
     public Product fetchProduct(@PathVariable int id) {
        return productService.getProduct(id);
