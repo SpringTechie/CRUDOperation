@@ -25,7 +25,7 @@ public class ProductController {
 
     // to fetch the product
     @GetMapping("/get/id/{id}")
-    @Operation(summary = "Find product By Id",description = "This helps to find the product by Product Id")
+    @Operation(summary = "Find product By Id",description = "This helps to find the product by Product with Id")
     @Parameter(name="id",description = "Enter Product Id",example = "1")
     @ApiResponse(responseCode = "200",description = "ProductFound with Id")
     @ApiResponse(responseCode = "204",description = "No Product Found with Id")
