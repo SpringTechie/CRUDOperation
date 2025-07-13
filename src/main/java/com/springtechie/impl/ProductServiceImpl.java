@@ -7,15 +7,19 @@ import com.springtechie.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.RequestScope;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.util.List;
 import java.util.Optional;
+
 
 @Service("pservice")
 @Scope("prototype")
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    Logger logger= LogManager.getLogger(ProductServiceImpl.class);
 
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
@@ -24,11 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(int id) {
-
-        // select * from emp where id = 1;
-        // findById method returns the Optional object.
-        // if we try to get value directly from Optional object by using get() method
-        // it throws throws NoSuchElementException.
+        logger.info("Getting product from Db for id {}",id);
         Optional<Product> product = productRepository.findById(id);
         // to handle this we need check whether Optional object contains value or not.
         if (!product.isEmpty()) {
@@ -57,5 +57,11 @@ public class ProductServiceImpl implements ProductService {
     public String updateProduct(Product product) {
         productRepository.save(product);
         return "Product updated Successfully";
+    }
+
+    @Override
+    public List<Product> fetchAllProducts(int size) {
+        List<Product> products = productRepository.findAll();
+       return products.subList(0,size);
     }
 }

@@ -8,4 +8,4 @@ if we want to create any object manually and register this inside the container.
 step1: annotate the class with @Configuration(This tells to spring that this class has beans)
 step2: create any method that should required bean and mark that method with @Bean.
        By this we can get full control over the object creation.
-3.XML Based.
+3.XML Based : we need to create xml files and configure beans inside the xml.
