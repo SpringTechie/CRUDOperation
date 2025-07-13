@@ -29,7 +29,7 @@ public class ProductController {
     @Parameter(name="id",description = "Enter Product Id",example = "1")
     @ApiResponse(responseCode = "200",description = "ProductFound with Id")
     @ApiResponse(responseCode = "204",description = "No Product Found with Id")
-    @ApiResponse(responseCode = "400",description = "Bad Request")
+    @ApiResponse(responseCode = "400",description = "Bad Request 400")
     public Product fetchProduct(@PathVariable int id) {
        return productService.getProduct(id);
     }
